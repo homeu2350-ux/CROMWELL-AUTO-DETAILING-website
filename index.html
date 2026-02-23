@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cromwell Auto Detailing | HRM Mobile Detailing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cromwell Auto Detailing – professional mobile detailing serving all HRM. Book your detail online." />
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0b1020;
+      --accent: #1e90ff;
+      --accent-soft: rgba(30, 144, 255, 0.2);
+      --text: #f5f7ff;
+      --muted: #a5b0c8;
+      --danger: #ff4b6a;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --glass: rgba(10, 16, 35, 0.82);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10224a 0, #050814 45%, #02030a 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 20% 0, #3aa3ff 0, #0a1630 40%, #02030a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+    }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(5, 10, 30, 0.7);
+      color: var(--muted);
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      background: var(--accent-soft);
+      color: var(--text);
+      border-color: rgba(30, 144, 255, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .hero-main {
+      padding: 24px 22px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(10, 16, 35, 0.96), rgba(10, 30, 70, 0.96));
+      border: 1px solid var(--border-glass);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(58, 163, 255, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(0, 255, 255, 0.12) 0, transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3affc4;
+      box-shadow: 0 0 10px rgba(58, 255, 196, 0.8);
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-badge {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 10, 30, 0.8);
+      color: var(--muted);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #1e90ff, #3aa3ff);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(30, 144, 255, 0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(30, 144, 255, 0.6);
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(5, 10, 30, 0.8);
+      color: var(--muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(10, 20, 50, 0.95);
+      color: var(--text);
+      border-color: rgba(30, 144, 255, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .hero-side {
+      padding: 18px 18px 20px;
+      border-radius: var(--radius-lg);
+      background: var(--glass);
+      border: 1px solid var(--border-glass);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-side-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .hero-stat {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hero-stat strong {
+      color: var(--text);
+    }
+
+    .hero-service-area {
+      font-size: 0.85rem;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(5, 10, 30, 0.9);
+      border: 1px dashed rgba(255, 255, 255, 0.16);
+      color: var(--muted);
+    }
+
+    .hero-service-area span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-contact-chip {
+      font-size: 0.85rem;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(10, 20, 50, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      align-items: center;
+    }
+
+    .hero-contact-chip code {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 3px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--accent);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    section {
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: var(--glass);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-glass);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 20px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+    }
+
+    .package {
+      border-radius: var(--radius-md);
+      padding: 14px 14px 16px;
+      background: radial-gradient(circle at top, rgba(30, 144, 255, 0.16) 0, rgba(5, 10, 30, 0.96) 55%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+    }
+
+    .package::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 40%);
+      opacity: 0;
+      transition: opacity var(--transition-med);
+      pointer-events: none;
+    }
+
+    .package:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      border-color: rgba(30, 144, 255, 0.7);
+    }
+
+    .package:hover::after {
+      opacity: 1;
+    }
+
+    .package-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .package-name {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .package-price {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .package-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .package-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .package-list li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .package-tagline {
+      font-size: 0.78rem;
+      color: var(--muted);
+      opacity: 0.9;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    .form-row-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px 9px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(5, 10, 30, 0.9);
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(30, 144, 255, 0.8);
+      box-shadow: 0 0 0 1px rgba(30, 144, 255, 0.5);
+      background: rgba(5, 10, 30, 1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .form-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .contact-card {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(5, 10, 30, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .contact-card strong {
+      color: var(--text);
+    }
+
+    .admin-card {
+      margin-top: 16px;
+    }
+
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .admin-status {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .admin-status span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .admin-login-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .admin-login-row input {
+      max-width: 180px;
+    }
+
+    .btn-ghost {
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(5, 10, 30, 0.8);
+      color: var(--muted);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(10, 20, 50, 0.95);
+      color: var(--text);
+      border-color: rgba(30, 144, 255, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .admin-list {
+      max-height: 260px;
+      overflow-y: auto;
+      padding-right: 4px;
+      margin-top: 4px;
+    }
+
+    .admin-booking {
+      border-radius: 10px;
+      padding: 8px 9px;
+      background: rgba(5, 10, 30, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .admin-booking strong {
+      color: var(--text);
+    }
+
+    .admin-empty {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .page {
+        padding-inline: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- Replace with your actual logo file -->
+        </div>
+        <div class="brand-text">
+          <h1>CROMWELL AUTO DETAILING</h1>
+            <span>HRM MOBILE DETAILING</span>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-link" onclick="scrollToSection('packages')">Packages</button>
+        <button class="nav-link" onclick="scrollToSection('booking')">Book a Detail</button>
+        <button class="nav-link" onclick="scrollToSection('contact')">Contact</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-main">
+          <div class="hero-inner">
+            <div class="hero-tag">
+              <span class="hero-tag-dot"></span>
+              <span>Mobile detailing • HRM</span>
+            </div>
+            <h2 class="hero-title">
+              Professional <span>Auto Detailing</span> across the HRM.
+            </h2>
+            <p class="hero-subtitle">
+              Cromwell Auto Detailing brings a showroom‑ready clean right to your driveway. Choose your package, send your
+              location, and your car gets handled with care—start to finish.
+            </p>
+            <div class="hero-badges">
+              <div class="hero-badge">Serving all HRM</div>
+              <div class="hero-badge">Exterior &amp; interior deep clean</div>
+              <div class="hero-badge">By appointment only</div>
+            </div>
+            <div class="hero-cta">
+              <button class="btn-primary" onclick="scrollToSection('booking')">
+                Book a detail
+                <span>→</span>
+              </button>
+              <button class="btn-secondary" onclick="scrollToSection('packages')">
+                View packages
+              </button>
+            </div>
+            <p class="hero-note">
+              You’ll get a confirmation message once your booking is reviewed.
+            </p>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div>
+            <p class="hero-side-title">At a glance</p>
+            <div class="hero-stat">
+              <span>Service area</span>
+              <strong>All HRM</strong>
+            </div>
+            <div class="hero-stat">
+              <span>Mobile service</span>
+              <strong>We come to you</strong>
+            </div>
+            <div class="hero-stat">
+              <span>Typical appointment</span>
+              <strong>2–4 hours</strong>
+            </div>
+          </div>
+          <div class="hero-service-area">
+            <strong>Where we go:</strong> <span>Halifax • Dartmouth • Bedford • Sackville • Cole Harbour • surrounding HRM</span>
+          </div>
+          <div class="hero-contact-chip">
+            <span>Direct contact:</span>
+            <!-- Replace with your dad's real contact info -->
+            <code>cromwellautodetailing@example.com</code>
+            <code>(902) 555‑1234</code>
+          </div>
+        </aside>
+      </section>
+
+      <div class="layout">
+        <!-- LEFT: PACKAGES + BOOKING -->
+        <div>
+          <section id="packages" class="card">
+            <h3 class="section-title">Detailing packages</h3>
+            <p class="section-subtitle">
+              Pick the level of clean that fits your car. You can select a package when you book.
+            </p>
+            <div class="packages-grid">
+              <article class="package">
+                <p class="package-label">Starter</p>
+                <h4 class="package-name">Silver Clean</h4>
+                <p class="package-price">From $80</p>
+                <p class="package-desc">
+                  Perfect for cars that need a solid refresh inside and out.
+                </p>
+                <ul class="package-list">
+                  <li>Exterior hand wash &amp; dry</li>
+                  <li>Wheel &amp; tire clean</li>
+                  <li>Interior vacuum</li>
+                  <li>Windows inside &amp; out</li>
+                </ul>
+                <p class="package-tagline">Good for regular maintenance.</p>
+              </article>
+
+              <article class="package">
+                <p class="package-label">Most popular</p>
+                <h4 class="package-name">Gold Detail</h4>
+                <p class="package-price">From $140</p>
+                <p class="package-desc">
+                  Deep clean for daily drivers—inside, outside, and all the spots in between.
+                </p>
+                <ul class="package-list">
+                  <li>Everything in Silver</li>
+                  <li>Interior wipe‑down &amp; dust removal</li>
+                  <li>Door jambs &amp; trunk cleaned</li>
+                  <li>Light stain treatment</li>
+                </ul>
+                <p class="package-tagline">Great balance of time and results.</p>
+              </article>
+
+              <article class="package">
+                <p class="package-label">Premium</p>
+                <h4 class="package-name">Platinum Complete</h4>
+                <p class="package-price">From $220</p>
+                <p class="package-desc">
+                  Full‑on reset for your vehicle—ideal before selling or after a long season.
+                </p>
+                <ul class="package-list">
+                  <li>Everything in Gold</li>
+                  <li>Deep interior shampoo (seats &amp; carpets)</li>
+                  <li>Plastic &amp; trim conditioning</li>
+                  <li>Basic paint protection</li>
+                </ul>
+                <p class="package-tagline">Maximum clean, top‑to‑bottom.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="booking" class="card">
+            <h3 class="section-title">Book a detail</h3>
+            <p class="section-subtitle">
+              Fill this out so your dad knows exactly what car, where it is, and what you want done.
+            </p>
+
+            <form id="booking-form">
+              <div class="form-grid">
+                <div>
+                  <label for="name">Your name</label>
+                  <input type="text" id="name" name="name" required placeholder="Full name" />
+                </div>
+                <div>
+                  <label for="phone">Phone number</label>
+                  <input type="tel" id="phone" name="phone" required placeholder="Best number to reach you" />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="Optional email" />
+                </div>
+                <div>
+                  <label for="package">Package</label>
+                  <select id="package" name="package" required>
+                    <option value="">Select a package</option>
+                    <option value="Silver Clean">Silver Clean</option>
+                    <option value="Gold Detail">Gold Detail</option>
+                    <option value="Platinum Complete">Platinum Complete</option>
+                  </select>
+                </div>
+                <div class="form-row-full">
+                  <label for="car-details">Vehicle details</label>
+                  <input
+                    type="text"
+                    id="car-details"
+                    name="carDetails"
+                    required
+                    placeholder="Year, make, model (e.g. 2018 Honda Civic)"
+                  />
+                </div>
+                <div class="form-row-full">
+                  <label for="car-location">Where is the car located? (address or area)</label>
+                  <input
+                    type="text"
+                    id="car-location"
+                    name="carLocation"
+                    required
+                    placeholder="Street address or area in HRM"
+                  />
+                </div>
+                <div>
+                  <label for="date">Preferred date</label>
+                  <input type="date" id="date" name="date" />
+                </div>
+                <div>
+                  <label for="time">Preferred time</label>
+                  <input type="time" id="time" name="time" />
+                </div>
+                <div class="form-row-full">
+                  <label for="notes">Anything specific to focus on?</label>
+                  <textarea
+                    id="notes"
+                    name="notes"
+                    placeholder="Pet hair, stains, kid mess, smoke smell, etc."
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn-primary">
+                  Send booking request
+                </button>
+                <p class="form-note">
+                  This sends your info into a private list only your dad should open.
+                </p>
+              </div>
+            </form>
+
+            <div class="contact-card" id="contact">
+              <p>
+                <strong>Direct contact:</strong><br />
+                <!-- Replace with real contact info -->
+                Email: cromwellautodetailing@example.com<br />
+                Phone: (902) 555‑1234
+              </p>
+              <p style="margin-top: 6px;">
+                You can also text or call with your name, car, and location if you prefer.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <!-- RIGHT: ADMIN AREA -->
+        <aside class="card admin-card">
+          <div class="admin-header">
+            <h3 class="section-title">Admin – for Cromwell only</h3>
+            <p class="admin-status">
+              Status: <span id="admin-status-label">Locked</span>
+            </p>
+          </div>
+          <p class="section-subtitle">
+            This panel shows booking requests stored in this browser. For real‑world use, connect this to a secure
+            backend (email, database, etc.).
+          </p>
+
+          <div class="admin-login-row">
+            <input
+              type="password"
+              id="admin-password"
+              placeholder="Enter admin PIN"
+              autocomplete="off"
+            />
+            <button class="btn-ghost" type="button" onclick="adminLogin()">
+              Unlock
+            </button>
+            <button class="btn-ghost" type="button" onclick="adminLogout()">
+              Lock
+            </button>
+          </div>
+          <p class="form-note">
+            Demo PIN (change in code): <code style="font-size:0.8rem;">1234</code>
+          </p>
+
+          <div id="admin-panel" style="display: none; margin-top: 10px;">
+            <div class="form-footer" style="margin-bottom: 6px;">
+              <span class="form-note">Bookings stored on this device only.</span>
+              <button class="btn-ghost" type="button" onclick="clearBookings()">
+                Clear all
+              </button>
+            </div>
+            <div class="admin-list" id="admin-list">
+              <p class="admin-empty">No bookings yet.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        © <span>Cromwell Auto Detailing</span> – mobile auto detailing across the HRM.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scroll to sections
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // Local storage key
+    const STORAGE_KEY = "cromwell_bookings_v1";
+    const ADMIN_PIN = "1234"; // Change this to your own PIN
+
+    function loadBookings() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return [];
+        return JSON.parse(raw);
+      } catch (e) {
+        console.error("Failed to load bookings", e);
+        return [];
+      }
+    }
+
+    function saveBookings(bookings) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
+      } catch (e) {
+        console.error("Failed to save bookings", e);
+      }
+    }
+
+    function renderBookings() {
+      const listEl = document.getElementById("admin-list");
+      const bookings = loadBookings();
+      listEl.innerHTML = "";
+
+      if (!bookings.length) {
+        const empty = document.createElement("p");
+        empty.className = "admin-empty";
+        empty.textContent = "No bookings yet.";
+        listEl.appendChild(empty);
+        return;
+      }
+
+      bookings
+        .slice()
+        .reverse()
+        .forEach((b) => {
+          const item = document.createElement("div");
+          item.className = "admin-booking";
+          item.innerHTML = `
+            <strong>${b.name}</strong> – ${b.package} <br />
+            Phone: ${b.phone || "N/A"} | Email: ${b.email || "N/A"}<br />
+            Vehicle: ${b.carDetails}<br />
+            Location: ${b.carLocation}<br />
+            Preferred: ${b.date || "Any"} @ ${b.time || "Any"}<br />
+            Notes: ${b.notes || "None"}<br />
+            <span style="font-size:0.75rem;opacity:0.8;">Submitted: ${new Date(b.createdAt).toLocaleString()}</span>
+          `;
+          listEl.appendChild(item);
+        });
+    }
+
+    function adminLogin() {
+      const input = document.getElementById("admin-password");
+      const panel = document.getElementById("admin-panel");
+      const statusLabel = document.getElementById("admin-status-label");
+      if (input.value === ADMIN_PIN) {
+        panel.style.display = "block";
+        statusLabel.textContent = "Unlocked";
+        renderBookings();
+      } else {
+        alert("Incorrect PIN.");
+      }
+      input.value = "";
+    }
+
+    function adminLogout() {
+      const panel = document.getElementById("admin-panel");
+      const statusLabel = document.getElementById("admin-status-label");
+      panel.style.display = "none";
+      statusLabel.textContent = "Locked";
+    }
+
+    function clearBookings() {
+      if (!confirm("Clear all stored bookings on this device?")) return;
+      saveBookings([]);
+      renderBookings();
+    }
+
+    // Handle booking form submit
+    document.getElementById("booking-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+
+      const booking = {
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        email: form.email.value.trim(),
+        package: form.package.value,
+        carDetails: form.carDetails.value.trim(),
+        carLocation: form.carLocation.value.trim(),
+        date: form.date.value,
+        time: form.time.value,
+        notes: form.notes.value.trim(),
+        createdAt: new Date().toISOString(),
+      };
+
+      if (!booking.name || !booking.phone || !booking.package || !booking.carDetails || !booking.carLocation) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      const bookings = loadBookings();
+      bookings.push(booking);
+      saveBookings(bookings);
+
+      form.reset();
+      alert("Booking request saved. Your dad can view it in the admin panel on this device.");
+      renderBookings();
+    });
+
+    // Initial render (in case there are existing bookings)
+    document.addEventListener("DOMContentLoaded", () => {
+      renderBookings();
+    });
+  </script>
+</body>
+</html>
